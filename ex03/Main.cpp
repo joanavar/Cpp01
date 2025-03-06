@@ -13,6 +13,7 @@ int main()
     {
         Weapon club = Weapon("crude spike club");
         HumanB joan("Joan");
+        joan.setWeapon(club);
         joan.attack();
         club.setType("C4");
         joan.attack();
