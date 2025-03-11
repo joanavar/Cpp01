@@ -15,7 +15,10 @@ HumanB::~HumanB()
 
 void    HumanB::attack()
 {
-    std::cout << this->nameB << " attacks with their " << this->weapon->getType() << std::endl;
+    if (this->is_armed == false)
+        std::cout << this->nameB << "he doesnt have a gun\n";
+    else
+        std::cout << this->nameB << " attacks with their " << this->weapon->getType() << std::endl;
 }
 void    HumanB::setWeapon(Weapon &weapon)
 {

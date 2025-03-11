@@ -6,13 +6,13 @@ HumanA::HumanA(std::string name, Weapon &weapon):
     this->nameA = name;
     this->weapon = weapon;
 
-    std::cout << "HumanA: " << name << "is created\n";
+    std::cout << "HumanA: " << name << " is created\n";
 
 }
 
 HumanA::~HumanA()
 {
-    std::cout << "HumanA: " << this->nameA << "is died.\n";
+    std::cout << "HumanA: " << this->nameA << " is died.\n";
 }
 void    HumanA::attack()
 {
