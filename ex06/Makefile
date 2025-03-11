@@ -3,16 +3,20 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: joannavarrogomez <joannavarrogomez@stud    +#+  +:+       +#+         #
+#    By: joanavar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/26 12:54:59 by joanavar          #+#    #+#              #
-#    Updated: 2025/03/10 21:21:04 by joannavarro      ###   ########.fr        #
+#    Updated: 2025/02/26 13:10:40 by joanavar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	Replace.2
-SRCS		=	Main.cpp
+NAME		=	HarlFilter
+SRCS		=	Harl.cpp\
+				Main.cpp
+
 CC			=	c++
+
+INCLUDES    = -I ./
 
 RM			=	rm -f
 CFLAGS		=	-Wall -Wextra -Werror -std=c++98
@@ -20,13 +24,13 @@ CFLAGS		=	-Wall -Wextra -Werror -std=c++98
 OBJS		=	$(SRCS:.cpp=.o)
 
 %.o: %.cpp
-		@$(CC) $(FLAGS) -c $< -o $@
-		@echo '$(NAME) compiled'
+		@$(CC) $(FLAGS) -c $< -o $@ $(INCLUDES)
 
 all: $(NAME)
 
-$(NAME) : $(OBJS)
-		@$(CC) $(CFLAGS) $^ -o $(NAME)
+$(NAME) : $(OBJS) 
+		@$(CC) $(CFLAGS) $(OBJS) -o $@ $(INCLUDES)
+		@echo '$(NAME) compiled'
 fclean: clean
 		@$(RM) $(NAME)
 clean: 
@@ -35,4 +39,5 @@ clean:
 re: fclean all
 
 .PHONY	: all clean fclean re
+
 
